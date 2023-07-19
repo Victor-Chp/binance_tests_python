@@ -1,0 +1,237 @@
+{
+    "type": "object",
+    "required": [
+        "info",
+        "item",
+        "event"
+    ],
+    "properties": {
+        "info": {
+            "type": "object",
+            "required": [
+                "_postman_id",
+                "name",
+                "description",
+                "schema",
+                "_exporter_id"
+            ],
+            "properties": {
+                "_postman_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "schema": {
+                    "type": "string"
+                },
+                "_exporter_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "item": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "item"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "item": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "name",
+                                "request",
+                                "response",
+                                "event"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "request": {
+                                    "type": "object",
+                                    "required": [
+                                        "method",
+                                        "header",
+                                        "url",
+                                        "description"
+                                    ],
+                                    "properties": {
+                                        "method": {
+                                            "type": "string"
+                                        },
+                                        "header": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "required": [
+                                                    "key",
+                                                    "value",
+                                                    "type",
+                                                    "name"
+                                                ],
+                                                "properties": {
+                                                    "key": {
+                                                        "type": "string"
+                                                    },
+                                                    "value": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "url": {
+                                            "type": "object",
+                                            "required": [
+                                                "raw",
+                                                "host",
+                                                "path",
+                                                "query"
+                                            ],
+                                            "properties": {
+                                                "raw": {
+                                                    "type": "string"
+                                                },
+                                                "host": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "path": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "query": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "key",
+                                                            "value",
+                                                            "description",
+                                                            "disabled"
+                                                        ],
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string"
+                                                            },
+                                                            "value": {
+                                                                "type": [
+                                                                    "string",
+                                                                    "null"
+                                                                ]
+                                                            },
+                                                            "description": {
+                                                                "type": "string"
+                                                            },
+                                                            "disabled": {
+                                                                "type": "boolean"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "response": {
+                                    "type": "array",
+                                    "items": {}
+                                },
+                                "event": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [
+                                            "listen",
+                                            "script"
+                                        ],
+                                        "properties": {
+                                            "listen": {
+                                                "type": "string"
+                                            },
+                                            "script": {
+                                                "type": "object",
+                                                "required": [
+                                                    "exec",
+                                                    "type"
+                                                ],
+                                                "properties": {
+                                                    "exec": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "event": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "listen",
+                    "script"
+                ],
+                "properties": {
+                    "listen": {
+                        "type": "string"
+                    },
+                    "script": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "exec"
+                        ],
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "exec": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

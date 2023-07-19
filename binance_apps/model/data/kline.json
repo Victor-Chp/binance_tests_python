@@ -1,0 +1,14 @@
+{
+    "type": "array",
+    "items": {
+        "type": "array",
+        "items": {
+            "anyOf": [{
+                "type": "integer"
+            },
+            {
+                "type": "string"
+            }]
+        }
+    }
+}

@@ -1,0 +1,223 @@
+{
+    "type": "object",
+    "required": [
+        "feeTier",
+        "canTrade",
+        "canDeposit",
+        "canWithdraw",
+        "updateTime",
+        "multiAssetsMargin",
+        "totalInitialMargin",
+        "totalMaintMargin",
+        "totalWalletBalance",
+        "totalUnrealizedProfit",
+        "totalMarginBalance",
+        "totalPositionInitialMargin",
+        "totalOpenOrderInitialMargin",
+        "totalCrossWalletBalance",
+        "totalCrossUnPnl",
+        "availableBalance",
+        "maxWithdrawAmount",
+        "assets",
+        "positions"
+    ],
+    "properties": {
+        "feeTier": {
+            "type": "integer"
+        },
+        "canTrade": {
+            "type": "string"
+        },
+        "canDeposit": {
+            "type": "string"
+        },
+        "canWithdraw": {
+            "type": "string"
+        },
+        "updateTime": {
+            "type": "integer"
+        },
+        "multiAssetsMargin": {
+            "type": "string"
+        },
+        "totalInitialMargin": {
+            "type": "string"
+        },
+        "totalMaintMargin": {
+            "type": "string"
+        },
+        "totalWalletBalance": {
+            "type": "string"
+        },
+        "totalUnrealizedProfit": {
+            "type": "string"
+        },
+        "totalMarginBalance": {
+            "type": "string"
+        },
+        "totalPositionInitialMargin": {
+            "type": "string"
+        },
+        "totalOpenOrderInitialMargin": {
+            "type": "string"
+        },
+        "totalCrossWalletBalance": {
+            "type": "string"
+        },
+        "totalCrossUnPnl": {
+            "type": "string"
+        },
+        "availableBalance": {
+            "type": "string"
+        },
+        "maxWithdrawAmount": {
+            "type": "string"
+        },
+        "assets": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "asset",
+                    "walletBalance",
+                    "unrealizedProfit",
+                    "marginBalance",
+                    "maintMargin",
+                    "initialMargin",
+                    "positionInitialMargin",
+                    "openOrderInitialMargin",
+                    "maxWithdrawAmount",
+                    "crossWalletBalance",
+                    "crossUnPnl",
+                    "availableBalance",
+                    "marginAvailable",
+                    "updateTime"
+                ],
+                "properties": {
+                    "asset": {
+                        "type": "string"
+                    },
+                    "walletBalance": {
+                        "type": "string"
+                    },
+                    "unrealizedProfit": {
+                        "type": "string"
+                    },
+                    "marginBalance": {
+                        "type": "string"
+                    },
+                    "maintMargin": {
+                        "type": "string"
+                    },
+                    "initialMargin": {
+                        "type": "string"
+                    },
+                    "positionInitialMargin": {
+                        "type": "string"
+                    },
+                    "openOrderInitialMargin": {
+                        "type": "string"
+                    },
+                    "maxWithdrawAmount": {
+                        "type": "string"
+                    },
+                    "crossWalletBalance": {
+                        "type": "string"
+                    },
+                    "crossUnPnl": {
+                        "type": "string"
+                    },
+                    "availableBalance": {
+                        "type": "string"
+                    },
+                    "marginAvailable": {
+                        "type": "string"
+                    },
+                    "updateTime": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "uniqueItems": false
+        },
+        "positions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "symbol",
+                    "initialMargin",
+                    "maintMargin",
+                    "unrealizedProfit",
+                    "positionInitialMargin",
+                    "openOrderInitialMargin",
+                    "leverage",
+                    "isolated",
+                    "entryPrice",
+                    "maxNotional",
+                    "positionSide",
+                    "positionAmt",
+                    "notional",
+                    "isolatedWallet",
+                    "updateTime",
+                    "bidNotional",
+                    "askNotional"
+                ],
+                "properties": {
+                    "symbol": {
+                        "type": "string"
+                    },
+                    "initialMargin": {
+                        "type": "string"
+                    },
+                    "maintMargin": {
+                        "type": "string"
+                    },
+                    "unrealizedProfit": {
+                        "type": "string"
+                    },
+                    "positionInitialMargin": {
+                        "type": "string"
+                    },
+                    "openOrderInitialMargin": {
+                        "type": "string"
+                    },
+                    "leverage": {
+                        "type": "string"
+                    },
+                    "isolated": {
+                        "type": "string"
+                    },
+                    "entryPrice": {
+                        "type": "string"
+                    },
+                    "maxNotional": {
+                        "type": "string"
+                    },
+                    "positionSide": {
+                        "type": "string"
+                    },
+                    "positionAmt": {
+                        "type": "string"
+                    },
+                    "notional": {
+                        "type": "string"
+                    },
+                    "isolatedWallet": {
+                        "type": "string"
+                    },
+                    "updateTime": {
+                        "type": "integer"
+                    },
+                    "bidNotional": {
+                        "type": "string"
+                    },
+                    "askNotional": {
+                        "type": "string"
+                    }
+                }
+            },
+            "uniqueItems": false
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "required": [
+            "id",
+            "price",
+            "qty",
+            "quoteQty",
+            "time",
+            "isBuyerMaker"
+        ]
+    },
+    "uniqueItems": false
+}

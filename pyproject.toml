@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "binance-tests-python"
+version = "0.1.0"
+description = ""
+authors = ["Victor Chp <qatester906@gmail.com>"]
+readme = "README.md"
+packages = [{include = "binance_tests_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+pytest = "^7.4.0"
+pydantic = "^1.10.11"
+jsonschema = "^4.17.3"
+allure-pytest = "^2.13.2"
+curlify = "^2.2.1"
+datamodel-code-generator = "^0.21.0"
+timestamp = "^0.0.1"
+selene = "2.0.0rc2"
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
