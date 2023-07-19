@@ -1,5 +1,5 @@
 from selene import browser, have, command
-from projectcfg import BaseUrls
+from project_cfg import BaseUrls
 
 base_url = BaseUrls.perpetual_futures_testnet
 

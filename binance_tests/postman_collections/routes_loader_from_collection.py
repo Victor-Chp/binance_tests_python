@@ -1,7 +1,8 @@
 import os.path
 import json
-from projectcfg import root_path
+from project_cfg import root_path
 import jsonschema
+from pathlib import Path
 
 
 def load_postman_collection(name: str):
@@ -73,7 +74,8 @@ def make_classes_code(collection, api_name):
 
 
 def make_routes_file(content, file_name):
-    path = os.path.join(root_path, 'binance_apps', 'model', 'api', 'routes', file_name)
+    from binance_tests.model.api import routes
+    path = Path(routes.__file__).parent.joinpath(file_name).__str__()
     with open(path, mode='w', encoding="utf-8") as file:
         file.write(content)
 

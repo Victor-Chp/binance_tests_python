@@ -1,21 +1,12 @@
 import pytest
-from helper import custom_session
-from projectcfg import BaseUrls, CreateSignature
-from binance_apps.model.api.routes.perpetual_futures import (
+from binance_tests.utils.requests_extensions import requests
+from project_cfg import BaseUrls, CreateSignature
+from binance_tests.model.api.routes.perpetual_futures import (
     marketroutes,
-    accountroutes,
-    orderroutes,
     traderoutes
 )
-from binance_apps.model.data.perpetual_futures_trade import (
-    AccountInformationModel,
-    AccountAssetsModel,
-    OrderModel,
-)
-from binance_apps.creds.api_creds import ApiCreds
-from binance_apps.model.data.exchangeinfo import exchangeinfo
-from binance_apps.model.data.error_codes import ErrorCodes
-
+from binance_tests.creds.api_creds import ApiCreds
+from binance_tests.model.data.exchangeinfo import exchangeinfo
 
 base_url = BaseUrls().futures_testnet
 api_key = ApiCreds().futures_testnet_key
@@ -31,7 +22,7 @@ perpetual_futures_symbols = exchangeinfo(
 def test_change_margin_type_isolated(symbol):
     params = {'symbol': symbol, 'marginType': 'ISOLATED'}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(
+    response = requests.post(
         f'{base_url}/{traderoutes.marginType}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
@@ -41,7 +32,7 @@ def test_change_margin_type_isolated(symbol):
 def test_change_margin_type_crossed(symbol):
     params = {'symbol': symbol, 'marginType': 'CROSSED'}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(
+    response = requests.post(
         f'{base_url}/{traderoutes.marginType}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
@@ -50,7 +41,7 @@ def test_change_margin_type_crossed(symbol):
 def test_get_current_multi_assets_margin():
     params = {}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.get(
+    response = requests.get(
         f'{base_url}/{traderoutes.multiAssetsMargin}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()

@@ -11,14 +11,21 @@ python = "^3.11"
 requests = "^2.31.0"
 pytest = "^7.4.0"
 pydantic = "^1.10.11"
-jsonschema = "^4.17.3"
 allure-pytest = "^2.13.2"
 curlify = "^2.2.1"
-datamodel-code-generator = "^0.21.0"
-timestamp = "^0.0.1"
+timestamp = "^0.0.1"  # todo: remove as legacy?
 selene = "2.0.0rc2"
 python-dotenv = "^1.0.0"
+
+[tool.poetry.dev-dependencies]
+jsonschema = "^4.17.3"  # todo: remove as legacy
+datamodel-code-generator = "^0.21.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+skip-string-normalization = 1

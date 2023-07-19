@@ -51,4 +51,3 @@ class CustomSession(Session):
             return response
 
 
-custom_session = CustomSession()

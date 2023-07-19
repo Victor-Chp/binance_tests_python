@@ -1,18 +1,18 @@
 import pytest
-from helper import custom_session
-from projectcfg import BaseUrls, CreateSignature
-from binance_apps.model.api.routes.perpetual_futures import (
+from binance_tests.utils.requests_extensions import requests
+from project_cfg import BaseUrls, CreateSignature
+from binance_tests.model.api.routes.perpetual_futures import (
     marketroutes,
     accountroutes,
     orderroutes,
 )
-from binance_apps.model.data.perpetual_futures_trade import (
+from binance_tests.model.data.perpetual_futures_trade import (
     AccountInformationModel,
     AccountAssetsModel,
     OrderModel,
 )
-from binance_apps.creds.api_creds import ApiCreds
-from binance_apps.model.data.exchangeinfo import exchangeinfo
+from binance_tests.creds.api_creds import ApiCreds
+from binance_tests.model.data.exchangeinfo import exchangeinfo
 
 
 base_url = BaseUrls().futures_testnet
@@ -31,7 +31,7 @@ minqty_for_market_order = exchangeinfo(
 def test_get_account_information():
     params = {}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.get(
+    response = requests.get(
         f'{base_url}/{accountroutes.account}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
@@ -45,7 +45,7 @@ def test_get_account_information():
 def test_post_new_order_market_buy_btcusdt():
     params = {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(
+    response = requests.post(
         f'{base_url}/{orderroutes.order}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
@@ -56,14 +56,14 @@ def test_post_new_order_market_buy_btcusdt():
 def test_post_new_order_market_sell_btcusdt():
     params = {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(
+    response = requests.post(
         f'{base_url}/{orderroutes.order}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
 
     params = {'symbol': 'BTCUSDT', 'side': 'SELL', 'type': 'MARKET', 'quantity': 0.001}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(
+    response = requests.post(
         f'{base_url}/{orderroutes.order}', headers=headers, params=params
     )
     assert response.status_code == 200, response.json()
@@ -75,7 +75,7 @@ def test_post_new_order_market_buy_minqty(symbol):
     # print(quantity)
     params = {'symbol': symbol, 'side': 'BUY', 'type': 'MARKET', 'quantity': quantity}
     params['signature'] = CreateSignature(api_key, api_secret, params).signature
-    response = custom_session.post(f'{base_url}/{orderroutes.order}', headers=headers, params=params)
+    response = requests.post(f'{base_url}/{orderroutes.order}', headers=headers, params=params)
     # print('\n', params, '\n')
     # print(response.json())
     assert response.status_code == 200, response.json()

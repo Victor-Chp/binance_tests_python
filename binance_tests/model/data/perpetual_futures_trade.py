@@ -1,4 +1,4 @@
-import pydantic
+from binance_tests.utils.extensions import pydantic
 
 
 class AccountAssetsModel(pydantic.BaseModel):
@@ -58,6 +58,7 @@ class AccountInformationModel(pydantic.BaseModel):
     maxWithdrawAmount: str
     assets: list[AccountAssetsModel]
     positions: list[AccountPositionsModel]
+
 
 class OrderModel(pydantic.BaseModel):
     orderId: int
